@@ -1,0 +1,59 @@
+.app-shell {
+  min-height: 100vh;
+}
+
+.waiting-queue-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.waiting-queue-actions h2 {
+  margin: 0;
+}
+
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+  min-width: 0;
+}
+
+.admin-box {
+  margin-bottom: 20px;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #353535, #252525);
+  box-shadow: var(--shadow);
+}
+
+ion-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 1.15em;
+  vertical-align: -0.18em;
+  width: 1.15em;
+}
+
+button ion-icon {
+  height: 1.2em;
+  width: 1.2em;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  grid-column: 1 / -1;
+  margin-top: auto;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+footer h3 {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}

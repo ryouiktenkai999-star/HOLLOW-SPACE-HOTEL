@@ -1,0 +1,1369 @@
+
+/* =========================================================
+   HOLLOW SPACE HOTEL - CLIENT PAGE
+   Responsive Desktop + Tablet + Mobile
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.client-page {
+  --client-ink: #173b37;
+  --client-muted: #58736e;
+  --client-green: #35695f;
+  --client-green-dark: #2b574f;
+  --client-light-green: #e8f0ed;
+  --client-border: #d2e1dd;
+
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f8f7;
+  color: var(--client-ink);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.client-page *,
+.client-page *::before,
+.client-page *::after {
+  box-sizing: border-box;
+}
+
+.client-page h1,
+.client-page h2,
+.client-page h3,
+.client-page p {
+  margin-top: 0;
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.client-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.client-page button,
+.client-page input {
+  font-family: inherit;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.client-header {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 68px;
+  margin: 16px auto 0;
+  padding: 10px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--client-border);
+  border-radius: 12px;
+}
+
+.client-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--client-ink);
+}
+
+.client-brand > ion-icon {
+  flex: 0 0 auto;
+  width: 35px;
+  height: 35px;
+  font-size: 35px;
+  color: var(--client-green);
+}
+
+.client-brand span {
+  min-width: 0;
+  display: grid;
+  line-height: 1.3;
+}
+
+.client-brand strong {
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.client-brand small {
+  color: var(--client-muted);
+  font-size: 10px;
+}
+
+.client-nav {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.client-nav a,
+.client-nav button,
+.client-nav .client-account {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--client-ink);
+
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition: color 0.18s ease;
+}
+
+.client-nav a:hover,
+.client-nav button:hover {
+  color: var(--client-green);
+}
+
+.client-nav ion-icon {
+  font-size: 15px;
+  flex: 0 0 auto;
+}
+
+/* =========================================================
+   DASHBOARD CONTAINER
+========================================================= */
+
+.client-dashboard {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 12px 0 45px;
+}
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.client-welcome {
+  position: relative;
+  min-height: 180px;
+  padding: 28px 32px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  border: 1px solid var(--client-border);
+  border-radius: 14px;
+
+  background-color: #e6efec;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(241, 248, 245, 0.99) 0%,
+      rgba(241, 248, 245, 0.95) 42%,
+      rgba(241, 248, 245, 0.20) 76%,
+      rgba(241, 248, 245, 0.05) 100%
+    ),
+    url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1600&q=85");
+  background-position: center, center;
+  background-size: cover;
+}
+
+.client-welcome > div {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;
+}
+
+.client-eyebrow {
+  margin-bottom: 5px !important;
+  color: var(--client-green) !important;
+  font-size: 10px !important;
+  font-weight: 750;
+  letter-spacing: 1.2px !important;
+}
+
+.client-welcome h1 {
+  margin-bottom: 8px;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.client-welcome h1 strong {
+  font-weight: 750;
+}
+
+.client-welcome > div > p:not(.client-eyebrow) {
+  margin-bottom: 0;
+  color: var(--client-muted);
+  font-size: 13px;
+}
+
+.client-welcome-rule {
+  display: block;
+  width: 38px;
+  height: 2px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: var(--client-green);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.client-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.client-stat {
+  min-width: 0;
+  min-height: 88px;
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #fff;
+  border: 1px solid var(--client-border);
+  border-radius: 11px;
+}
+
+.client-stat-icon {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: var(--client-light-green);
+  color: var(--client-green);
+}
+
+.client-stat-icon ion-icon {
+  font-size: 25px;
+}
+
+.client-stat > div {
+  min-width: 0;
+}
+
+.client-stat h2 {
+  margin-bottom: 2px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.client-stat strong {
+  display: block;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.client-stat p {
+  margin-bottom: 0;
+  color: var(--client-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.client-section {
+  margin-top: 20px;
+}
+
+.client-section > h2,
+.client-section-heading h2 {
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.client-section-heading {
+  min-width: 0;
+  margin-bottom: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.client-section-heading > a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--client-green);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.client-section-heading > a ion-icon {
+  font-size: 13px;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.client-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 9px;
+}
+
+.client-action {
+  min-width: 0;
+  min-height: 62px;
+  padding: 10px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  background: #fff;
+  border: 1px solid var(--client-border);
+  border-radius: 9px;
+  color: var(--client-ink);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.client-action:hover,
+.client-room-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(29, 72, 65, 0.10);
+}
+
+.client-action > ion-icon:first-child {
+  flex: 0 0 auto;
+  color: var(--client-green);
+  font-size: 25px;
+}
+
+.client-action > ion-icon:last-child {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--client-green);
+  font-size: 16px;
+}
+
+.client-action span {
+  min-width: 0;
+  display: grid;
+  line-height: 1.4;
+}
+
+.client-action strong {
+  font-size: 12px;
+}
+
+.client-action small {
+  overflow: hidden;
+  color: var(--client-muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.client-action-primary {
+  background: linear-gradient(120deg, #3c756b, #2f6258);
+  border-color: #3c756b;
+  color: #fff;
+}
+
+.client-action-primary > ion-icon,
+.client-action-primary small {
+  color: #fff !important;
+}
+
+/* =========================================================
+   ROOM CARDS
+========================================================= */
+
+.client-room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.client-room-card {
+  min-width: 0;
+  overflow: hidden;
+
+  background: #fff;
+  border: 1px solid var(--client-border);
+  border-radius: 10px;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.client-room-image {
+  width: 100%;
+  height: 145px;
+
+  background-color: #dce7e2;
+  background-position: center;
+  background-size: cover;
+}
+
+.client-room-info {
+  padding: 11px 12px 13px;
+}
+
+.client-room-info h3 {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.client-room-info > strong {
+  color: #23805d;
+  font-size: 12px;
+}
+
+.client-room-info > strong span {
+  font-weight: 500;
+}
+
+.client-room-info p {
+  min-height: 31px;
+  margin: 3px 0 9px;
+
+  color: var(--client-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.client-room-info button,
+.client-login-card > button {
+  width: 100%;
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 8px 12px;
+
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(120deg, #3c756b, #2f6258);
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.client-room-info button:hover,
+.client-login-card > button:hover {
+  background: var(--client-green-dark);
+  box-shadow: 0 5px 12px rgba(29, 72, 65, 0.16);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   RECENT BOOKING
+========================================================= */
+
+.client-recent {
+  margin-top: 22px;
+}
+
+.client-booking-row {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+
+  display: grid;
+  grid-template-columns:
+    52px
+    minmax(130px, 1.4fr)
+    minmax(85px, 1fr)
+    minmax(85px, 1fr)
+    auto
+    auto;
+  align-items: center;
+  gap: 12px;
+
+  background: #fff;
+  border: 1px solid var(--client-border);
+  border-radius: 9px;
+}
+
+.client-booking-row > div,
+.client-booking-room {
+  min-width: 0;
+  display: grid;
+  line-height: 1.5;
+}
+
+.client-booking-icon {
+  width: 52px;
+  height: 47px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+  background: var(--client-light-green);
+  color: var(--client-green);
+}
+
+.client-booking-icon ion-icon {
+  font-size: 24px;
+}
+
+.client-booking-row strong {
+  overflow: hidden;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.client-booking-row small {
+  color: var(--client-muted);
+  font-size: 10px;
+}
+
+.client-booking-status {
+  justify-self: start;
+  padding: 3px 8px;
+
+  border-radius: 12px;
+  background: #dff2e7;
+  color: #21784f;
+
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.client-booking-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 9px;
+
+  border: 1px solid #6f9d92;
+  border-radius: 5px;
+  color: var(--client-green);
+
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.client-empty-booking {
+  min-width: 0;
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+
+  background: #fff;
+  border: 1px solid var(--client-border);
+  border-radius: 9px;
+}
+
+.client-empty-booking p {
+  margin-bottom: 0;
+  color: var(--client-muted);
+  font-size: 12px;
+}
+
+.client-empty-booking a {
+  color: var(--client-green);
+  font-size: 11px;
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.client-login-wrap {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  padding: 40px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-login-card {
+  width: min(100%, 440px);
+  padding: 34px 30px 28px;
+
+  background: #fff;
+  border: 1px solid var(--client-border);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(26, 65, 59, 0.12);
+}
+
+.client-login-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: var(--client-light-green);
+  color: var(--client-green);
+  font-size: 25px;
+}
+
+.client-login-card .client-eyebrow,
+.client-login-card h1,
+.client-login-description {
+  text-align: center;
+}
+
+.client-login-card h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2.1rem, 3vw, 2.8rem);
+}
+
+.client-login-description {
+  margin-bottom: 22px !important;
+  color: var(--client-muted) !important;
+  font-size: 14px !important;
+}
+
+.client-login-card label {
+  display: block;
+  margin: 13px 0 5px;
+
+  color: var(--client-ink);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.client-login-card input {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+
+  background: #fbfdfc;
+  border: 1px solid var(--client-border);
+  border-radius: 8px;
+  outline: none;
+
+  color: var(--client-ink);
+  font-size: 14px;
+}
+
+.client-login-card input:focus {
+  border-color: var(--client-green);
+  box-shadow: 0 0 0 3px rgba(53, 105, 95, 0.12);
+}
+
+.client-login-card > button {
+  margin-top: 19px;
+  min-height: 46px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.client-login-layout .client-page {
+  --client-ink: #f5ead8;
+  --client-muted: #d3c4ac;
+  --client-green: #e0b66e;
+  --client-green-dark: #c7974e;
+  --client-light-green: rgba(217, 170, 98, 0.16);
+  --client-border: rgba(217, 170, 98, 0.38);
+  background: #11100e;
+}
+
+.client-login-layout .client-login-wrap {
+  min-height: 100vh;
+  background-color: #11100e;
+  background-image:
+    linear-gradient(rgba(7, 7, 7, 0.22), rgba(7, 7, 7, 0.22)),
+    url("/client-login-lobby.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.client-login-layout .client-login-card {
+  background: rgba(16, 15, 14, 0.82);
+  border-color: rgba(217, 170, 98, 0.58);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(9px);
+}
+
+.client-login-layout .client-login-card .client-eyebrow {
+  color: #d9aa62 !important;
+}
+
+.client-login-layout .client-login-card h1 {
+  color: #f5ead8;
+  font-family: var(--heading);
+}
+
+.client-login-layout .client-login-card input {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(217, 170, 98, 0.38);
+  color: #fff8ec;
+}
+
+.client-login-layout .client-login-card input::placeholder {
+  color: rgba(245, 234, 216, 0.55);
+}
+
+.client-login-layout .client-login-card input:focus {
+  border-color: #e0b66e;
+  box-shadow: 0 0 0 3px rgba(217, 170, 98, 0.18);
+}
+
+.client-login-layout .client-login-card > button {
+  background: linear-gradient(120deg, #e6bd78, #c9954d);
+  color: #21180c;
+}
+
+.client-login-layout .client-login-card > button:hover {
+  background: linear-gradient(120deg, #f0ca88, #d5a45b);
+  box-shadow: 0 7px 18px rgba(201, 149, 77, 0.24);
+}
+
+.client-login-error {
+  margin: 0 0 12px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 128, 128, 0.38);
+  border-radius: 6px;
+  background: rgba(140, 35, 35, 0.2);
+  color: #ffc1b8 !important;
+  font-size: 12px !important;
+}
+
+.client-register-prompt {
+  margin: 16px 0 0 !important;
+  color: var(--client-muted) !important;
+  font-size: 12px !important;
+  text-align: center;
+}
+
+.client-register-prompt a {
+  color: var(--client-green) !important;
+  font-weight: 700;
+}
+
+.client-register-prompt a:hover {
+  text-decoration: underline;
+}
+
+.client-login-card > button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.client-login-layout .client-login-card button:focus-visible {
+  outline: 2px solid #f0ca88;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .client-header,
+  .client-dashboard {
+    width: calc(100% - 28px);
+  }
+
+  .client-nav {
+    gap: 7px 15px;
+  }
+
+  .client-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-stat:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .client-room-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-booking-row {
+    grid-template-columns:
+      50px
+      minmax(120px, 1fr)
+      minmax(80px, 0.8fr)
+      minmax(80px, 0.8fr)
+      auto;
+  }
+
+  .client-booking-link {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+}
+
+/* =========================================================
+   MOBILE / PHONE
+========================================================= */
+
+@media (max-width: 700px) {
+  .client-header {
+    width: calc(100% - 16px);
+    margin-top: 8px;
+    padding: 12px 13px;
+
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .client-brand {
+    width: 100%;
+  }
+
+  .client-brand > ion-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+  }
+
+  .client-brand strong {
+    font-size: 14px;
+  }
+
+  .client-nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 5px 13px;
+  }
+
+  .client-nav a,
+  .client-nav button,
+  .client-nav .client-account {
+    min-height: 28px;
+    font-size: 10px;
+  }
+
+  .client-dashboard {
+    width: 100%;
+    padding: 8px 10px 28px;
+  }
+
+  .client-welcome {
+    min-height: 155px;
+    padding: 20px 17px;
+
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(241, 248, 245, 0.99) 0%,
+        rgba(241, 248, 245, 0.91) 62%,
+        rgba(241, 248, 245, 0.65) 100%
+      ),
+      url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=80");
+  }
+
+  .client-welcome h1 {
+    font-size: 25px;
+  }
+
+  .client-welcome > div > p:not(.client-eyebrow) {
+    font-size: 11px;
+  }
+
+  .client-stats {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin: 10px 0;
+  }
+
+  .client-stat:last-child {
+    grid-column: auto;
+  }
+
+  .client-stat {
+    min-height: 72px;
+    padding: 10px 12px;
+  }
+
+  .client-stat-icon {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .client-stat-icon ion-icon {
+    font-size: 21px;
+  }
+
+  .client-stat strong {
+    font-size: 19px;
+  }
+
+  .client-section {
+    margin-top: 17px;
+  }
+
+  .client-section > h2,
+  .client-section-heading h2 {
+    font-size: 16px;
+  }
+
+  .client-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .client-actions {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .client-action {
+    min-height: 60px;
+  }
+
+  .client-action small {
+    white-space: normal;
+  }
+
+  .client-room-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .client-room-image {
+    height: 175px;
+  }
+
+  .client-room-info {
+    padding: 11px 12px 13px;
+  }
+
+  .client-room-info p {
+    min-height: 0;
+    font-size: 11px;
+  }
+
+  .client-room-info button {
+    min-height: 40px;
+    font-size: 12px;
+  }
+
+  .client-booking-row {
+    grid-template-columns: 45px minmax(0, 1fr);
+    gap: 8px 10px;
+    padding: 11px;
+  }
+
+  .client-booking-icon {
+    width: 45px;
+    height: 45px;
+    grid-row: span 2;
+  }
+
+  .client-booking-room {
+    grid-column: 2;
+  }
+
+  .client-booking-row > div:not(.client-booking-room) {
+    grid-column: 1 / -1;
+  }
+
+  .client-booking-status,
+  .client-booking-link {
+    justify-self: start;
+  }
+
+  .client-empty-booking {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .client-login-wrap {
+    min-height: calc(100vh - 100px);
+    padding: 24px 12px;
+  }
+
+  .client-login-card {
+    width: 100%;
+    padding: 25px 18px;
+  }
+
+  .client-login-card h1 {
+    font-size: 25px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+  .client-header {
+    width: calc(100% - 12px);
+    padding: 10px;
+  }
+
+  .client-nav {
+    gap: 4px 9px;
+  }
+
+  .client-nav a,
+  .client-nav button,
+  .client-nav .client-account {
+    font-size: 9.5px;
+  }
+
+  .client-dashboard {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .client-welcome {
+    min-height: 140px;
+    padding: 15px;
+  }
+
+  .client-welcome h1 {
+    font-size: 22px;
+  }
+
+  .client-welcome > div > p:not(.client-eyebrow) {
+    font-size: 10px;
+  }
+
+  .client-action {
+    padding: 10px 11px;
+    gap: 10px;
+  }
+
+  .client-action > ion-icon:first-child {
+    font-size: 21px;
+  }
+
+  .client-action strong {
+    font-size: 11px;
+  }
+
+  .client-action small {
+    font-size: 9px;
+  }
+
+  .client-room-image {
+    height: 150px;
+  }
+
+  .client-login-card {
+    padding: 21px 14px;
+  }
+}
+
+@media (min-width: 961px) {
+  .client-header,
+  .client-dashboard {
+    max-width: 1280px;
+  }
+
+  .client-header {
+    padding: 12px 24px;
+  }
+
+  .client-dashboard {
+    padding: 14px 20px 40px;
+  }
+
+  .client-stats,
+  .client-room-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .client-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-booking-row {
+    grid-template-columns: 52px minmax(100px, 1.25fr) repeat(2, minmax(100px, 1fr)) auto auto;
+  }
+
+  .client-room-image {
+    height: 140px;
+  }
+}
+
+.client-layout {
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.client-topbar {
+  min-height: 58px;
+  height: auto;
+  padding: 7px clamp(14px, 3vw, 34px);
+  gap: 20px;
+}
+
+.client-topbar-brand {
+  width: 150px;
+  height: 100px;
+  flex: 0 0 150px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  background: transparent;
+  color: #193f3b;
+}
+
+.client-topbar-brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  flex: 0 1 auto;
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0 5px rgba(232, 177, 91, 0.3));
+}
+
+.client-topbar-account {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.client-topbar .system-back-link {
+  border-color: #dce9e6;
+  background: #fff;
+  color: #365851;
+}
+
+.client-topbar .system-back-link ion-icon {
+  color: #32665d;
+}
+
+.client-topbar .system-back-link:hover {
+  border-color: #b8d1ca;
+  background: #f3f8f7;
+  color: #28745b;
+}
+
+.client-topbar-account .admin-user {
+  min-height: 29px;
+  padding-left: 10px;
+  color: #365851;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.client-topbar-logout {
+  min-height: 29px;
+  padding: 5px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #dce9e6;
+  border-radius: 5px;
+  background: #fff;
+  color: #365851;
+  font-size: 9px;
+}
+
+.client-topbar-logout:hover {
+  background: #f3f8f7;
+  color: #28745b;
+  transform: none;
+  box-shadow: none;
+}
+
+.client-layout .client-page {
+  width: 100%;
+  min-height: calc(100vh - 45px);
+  overflow: visible;
+}
+
+.client-layout .client-dashboard {
+  width: 100%;
+  max-width: 1500px;
+  padding: 11px 14px 14px;
+}
+
+.client-layout .client-login-wrap {
+  padding: 24px;
+}
+
+.client-login-layout {
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.client-login-layout .admin-main,
+.client-login-layout .client-page {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.client-login-layout .client-login-wrap {
+  height: 100%;
+  min-height: 0;
+  padding: clamp(12px, 4vh, 40px) 18px;
+}
+
+@media (max-height: 620px) {
+  .client-login-layout .client-login-card {
+    padding: 20px 22px 18px;
+  }
+
+  .client-login-layout .client-login-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+
+  .client-login-layout .client-login-description {
+    margin-bottom: 12px !important;
+  }
+
+  .client-login-layout .client-login-card label {
+    margin-top: 8px;
+  }
+
+  .client-login-layout .client-login-card input {
+    min-height: 40px;
+    padding: 8px 12px;
+  }
+
+  .client-login-layout .client-login-card > button {
+    min-height: 40px;
+    margin-top: 12px;
+  }
+
+  .client-login-layout .client-register-prompt {
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .client-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .client-topbar {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding: 8px 12px;
+  }
+
+  .client-topbar-brand {
+    flex: 0 0 150px;
+    margin: 0 auto;
+  }
+
+  .client-topbar-account {
+    margin-left: auto;
+  }
+
+  .client-layout .client-dashboard {
+    padding: 8px 10px 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .client-layout .admin-topbar {
+    height: auto;
+    min-height: 42px;
+    padding: 7px 10px;
+  }
+
+  .client-topbar-brand {
+    width: 120px;
+    height: 80px;
+    flex: 0 0 120px;
+  }
+
+  .client-topbar-account {
+    gap: 7px;
+  }
+
+  .client-topbar-account .admin-user {
+    padding-left: 7px;
+    font-size: 9px;
+  }
+
+  .client-topbar-logout {
+    min-height: 27px;
+    padding: 4px 6px;
+    font-size: 8px;
+  }
+}

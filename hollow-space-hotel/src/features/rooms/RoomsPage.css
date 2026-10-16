@@ -1,0 +1,784 @@
+.rooms-page {
+  --rooms-gold: #d9aa62;
+  --rooms-gold-light: #f1d7a2;
+  --rooms-text: #f8efe5;
+  --rooms-muted: #c9c0b1;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(217, 170, 98, 0.1), transparent 28%),
+    linear-gradient(180deg, #090909 0%, #10100f 100%);
+  color: var(--rooms-text);
+  font-family: var(--sans, "Inter", "Segoe UI", Arial, sans-serif);
+}
+
+.rooms-page *,
+.rooms-page *::before,
+.rooms-page *::after {
+  box-sizing: border-box;
+}
+
+.rooms-page h1,
+.rooms-page h2,
+.rooms-page h3,
+.rooms-page p {
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.rooms-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rooms-nav {
+  min-height: 72px;
+  padding: 12px clamp(18px, 5vw, 72px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(217, 170, 98, 0.28);
+  background: rgba(15, 14, 12, 0.96);
+}
+
+.rooms-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.rooms-brand > ion-icon {
+  color: var(--rooms-gold);
+  font-size: 27px;
+}
+
+.rooms-brand span {
+  display: grid;
+  gap: 2px;
+}
+
+.rooms-brand strong {
+  color: var(--rooms-gold-light);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.rooms-brand small {
+  color: var(--rooms-muted);
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.rooms-nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.5vw, 30px);
+}
+
+.rooms-nav-links a,
+.rooms-nav-account {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--rooms-text);
+  font-size: 12px;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.rooms-nav-links ion-icon,
+.rooms-nav-account ion-icon {
+  color: var(--rooms-gold);
+  font-size: 16px;
+}
+
+.rooms-nav-links a:hover,
+.rooms-nav-links a.is-active,
+.rooms-nav-account:hover {
+  color: var(--rooms-gold-light);
+}
+
+.rooms-nav-account {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(217, 170, 98, 0.55);
+  border-radius: 3px;
+}
+
+.rooms-nav-logout {
+  min-height: 36px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(217, 170, 98, 0.45);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--rooms-text);
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.rooms-nav-logout ion-icon {
+  color: var(--rooms-gold);
+  font-size: 16px;
+  transition: color 0.18s ease;
+}
+
+.rooms-nav-logout:hover {
+  background: rgba(217, 170, 98, 0.12);
+  border-color: var(--rooms-gold);
+  color: var(--rooms-gold-light);
+}
+
+.rooms-content {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 24px;
+}
+
+.rooms-hero {
+  position: relative;
+  min-height: 270px;
+  padding: 36px clamp(22px, 5vw, 54px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(217, 170, 98, 0.35);
+  background:
+    linear-gradient(90deg, rgba(8, 7, 6, 0.88), rgba(8, 7, 6, 0.58) 55%, rgba(8, 7, 6, 0.32)),
+    url("/client-main-lobby.png") center 52% / cover no-repeat,
+    #25211b;
+}
+
+.rooms-hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+.rooms-eyebrow {
+  margin: 0 0 8px !important;
+  color: var(--rooms-gold) !important;
+  font-size: 10px !important;
+  font-weight: 750;
+  letter-spacing: 1.5px !important;
+}
+
+.rooms-hero h1 {
+  margin: 0 0 8px;
+  color: var(--rooms-gold-light);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.rooms-hero > div > p:not(.rooms-eyebrow) {
+  margin: 0 0 16px;
+  color: var(--rooms-text);
+  font-size: 14px;
+}
+
+.rooms-hero > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--rooms-gold-light);
+  font-size: 11px;
+}
+
+.rooms-hero > div > span ion-icon {
+  color: var(--rooms-gold);
+  font-size: 15px;
+}
+
+.rooms-section {
+  margin-top: 34px;
+}
+
+.rooms-section-heading {
+  margin: 0 0 16px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rooms-section-heading .rooms-eyebrow {
+  margin-bottom: 5px !important;
+}
+
+.rooms-section-heading h2 {
+  margin: 0;
+  color: var(--rooms-text);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+}
+
+.rooms-section-heading > span {
+  padding-bottom: 4px;
+  color: var(--rooms-muted);
+  font-size: 11px;
+}
+
+.rooms-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.rooms-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(217, 170, 98, 0.32);
+  background: linear-gradient(145deg, rgba(27, 25, 22, 0.98), rgba(17, 16, 14, 0.98));
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rooms-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(217, 170, 98, 0.72);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
+}
+
+.rooms-card-image {
+  height: clamp(175px, 21vw, 245px);
+  position: relative;
+  background-color: #26231f;
+  background-position: center;
+  background-size: cover;
+}
+
+.rooms-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.36));
+  pointer-events: none;
+}
+
+.rooms-card-image > span {
+  position: absolute;
+  z-index: 1;
+  top: 11px;
+  right: 11px;
+  padding: 6px 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(217, 170, 98, 0.42);
+  background: rgba(16, 15, 13, 0.88);
+  color: var(--rooms-gold-light);
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.rooms-card-image > span ion-icon {
+  color: var(--rooms-gold);
+  font-size: 12px;
+}
+
+.rooms-card-body {
+  padding: 16px;
+}
+
+.rooms-card-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.rooms-card-title h3 {
+  min-width: 0;
+  margin: 0;
+  color: var(--rooms-text);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.rooms-card-title > strong {
+  flex: 0 0 auto;
+  color: var(--rooms-gold-light);
+  font-size: 13px;
+}
+
+.rooms-card-title small {
+  color: var(--rooms-muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.rooms-card-body > p {
+  min-height: 40px;
+  margin: 8px 0 13px;
+  color: var(--rooms-muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.rooms-card-meta {
+  min-height: 27px;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--rooms-muted);
+  font-size: 9px;
+}
+
+.rooms-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rooms-card-meta ion-icon {
+  color: var(--rooms-gold);
+  font-size: 14px;
+}
+
+.rooms-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.rooms-secondary-button,
+.rooms-select-button,
+.rooms-button {
+  min-height: 42px;
+  padding: 9px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--rooms-gold);
+  border-radius: 3px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.rooms-secondary-button {
+  flex: 1 1 0;
+  background: rgba(217, 170, 98, 0.06);
+  color: var(--rooms-gold-light);
+}
+
+.rooms-select-button {
+  flex: 1.5 1 0;
+  width: 100%;
+  background: linear-gradient(120deg, #e6bd78, #c9954d);
+  color: #21180c;
+}
+
+.rooms-secondary-button:hover,
+.rooms-select-button:hover,
+.rooms-button.is-gold:hover {
+  transform: translateY(-1px);
+}
+
+.rooms-select-button:hover,
+.rooms-button.is-gold:hover {
+  background: linear-gradient(120deg, #f0ca88, #d5a45b);
+  box-shadow: 0 5px 18px rgba(217, 170, 98, 0.2);
+}
+
+.rooms-secondary-button:hover {
+  background: rgba(217, 170, 98, 0.14);
+}
+
+.rooms-detail-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
+  gap: 0;
+  margin-top: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 170, 98, 0.32);
+  background: linear-gradient(145deg, rgba(27, 25, 22, 0.98), rgba(17, 16, 14, 0.98));
+}
+
+.rooms-detail-panel.is-gallery {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.rooms-detail-image {
+  min-height: 260px;
+  background-color: #26231f;
+  background-position: center;
+  background-size: cover;
+}
+
+.rooms-detail-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 20px 0;
+  background: #26231f;
+}
+
+.rooms-detail-gallery figure {
+  width: min(100%, 680px);
+  justify-self: center;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(217, 170, 98, 0.24);
+  background: #171614;
+}
+
+.rooms-detail-gallery img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 32vw, 360px);
+  object-fit: cover;
+}
+
+.rooms-detail-gallery figcaption {
+  padding: 9px 12px;
+  color: var(--rooms-gold-light);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.rooms-detail-content {
+  padding: 22px 22px 18px;
+}
+
+.rooms-detail-content h3 {
+  margin: 0;
+  color: var(--rooms-gold-light);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+}
+
+.rooms-detail-price {
+  display: inline-block;
+  margin: 8px 0 10px;
+  color: var(--rooms-gold-light);
+  font-size: 20px;
+}
+
+.rooms-detail-price small {
+  color: var(--rooms-muted);
+  font-size: 10px;
+}
+
+.rooms-detail-content > p:not(.rooms-eyebrow) {
+  margin: 0;
+  color: var(--rooms-muted);
+  line-height: 1.7;
+  font-size: 12px;
+}
+
+.rooms-detail-list {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+}
+
+.rooms-detail-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--rooms-text);
+  font-size: 11px;
+}
+
+.rooms-detail-list ion-icon {
+  color: var(--rooms-gold);
+}
+
+.rooms-rating-box {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(217, 170, 98, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.rooms-rating-box > span {
+  color: var(--rooms-gold-light);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rooms-rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rooms-rating-stars button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(217, 170, 98, 0.36);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.rooms-rating-stars button.is-filled {
+  background: rgba(217, 170, 98, 0.14);
+  color: var(--rooms-gold-light);
+}
+
+.rooms-rating-stars button:hover {
+  transform: translateY(-1px);
+  color: var(--rooms-gold-light);
+}
+
+.rooms-detail-actions {
+  margin-top: 18px;
+}
+
+.rooms-detail-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(217, 170, 98, 0.38);
+  background: rgba(16, 15, 13, 0.84);
+  color: var(--rooms-gold-light);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.rooms-detail-close:hover {
+  background: rgba(217, 170, 98, 0.08);
+}
+
+.rooms-booking-banner {
+  margin-top: 22px;
+  padding: 17px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid rgba(217, 170, 98, 0.3);
+  background: linear-gradient(145deg, rgba(27, 25, 22, 0.96), rgba(17, 16, 14, 0.96));
+}
+
+.rooms-booking-banner-icon {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(217, 170, 98, 0.35);
+  border-radius: 50%;
+  background: rgba(217, 170, 98, 0.1);
+  color: var(--rooms-gold-light);
+  font-size: 20px;
+}
+
+.rooms-booking-banner > div {
+  min-width: 0;
+}
+
+.rooms-booking-banner .rooms-eyebrow {
+  margin-bottom: 3px !important;
+}
+
+.rooms-booking-banner strong {
+  color: var(--rooms-text);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: 18px;
+}
+
+.rooms-booking-banner > div > p:last-child {
+  margin: 3px 0 0;
+  color: var(--rooms-muted);
+  font-size: 10px;
+}
+
+.rooms-button.is-outline {
+  margin-left: auto;
+  flex: 0 0 auto;
+  background: rgba(217, 170, 98, 0.06);
+  color: var(--rooms-gold-light);
+  text-align: center;
+}
+
+.rooms-button.is-outline:hover {
+  transform: translateY(-1px);
+  background: rgba(217, 170, 98, 0.16);
+}
+
+.rooms-footer {
+  min-height: 58px;
+  padding: 13px clamp(20px, 5vw, 72px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-top: 1px solid rgba(217, 170, 98, 0.22);
+  color: var(--rooms-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.rooms-footer > a {
+  color: var(--rooms-gold-light);
+  font-family: var(--heading, "Cormorant Garamond", Georgia, serif);
+  font-size: 14px;
+}
+
+.rooms-footer > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rooms-footer ion-icon {
+  color: var(--rooms-gold);
+}
+
+.rooms-page a:focus-visible,
+.rooms-page button:focus-visible {
+  outline: 2px solid var(--rooms-gold-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .rooms-detail-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rooms-detail-image {
+    height: 230px;
+    min-height: 230px;
+  }
+
+  .rooms-nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rooms-nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .rooms-nav-links a {
+    gap: 4px;
+    font-size: 11px;
+  }
+
+  .rooms-nav-account {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    min-height: 34px;
+  }
+
+  .rooms-content {
+    width: min(100% - 28px, 600px);
+    padding-top: 16px;
+  }
+
+  .rooms-hero {
+    min-height: 225px;
+    padding: 28px;
+  }
+
+  .rooms-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .rooms-card-image {
+    height: 175px;
+  }
+}
+
+@media (max-width: 520px) {
+  .rooms-nav {
+    padding: 12px 14px;
+  }
+
+  .rooms-nav-account {
+    right: 14px;
+  }
+
+  .rooms-content {
+    width: calc(100% - 24px);
+    padding-top: 12px;
+  }
+
+  .rooms-hero {
+    min-height: 200px;
+    padding: 22px 17px;
+  }
+
+  .rooms-hero > div > p:not(.rooms-eyebrow) {
+    max-width: 275px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .rooms-section {
+    margin-top: 25px;
+  }
+
+  .rooms-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .rooms-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rooms-card-image {
+    height: 220px;
+  }
+
+  .rooms-booking-banner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .rooms-booking-banner > div {
+    flex: 1 1 calc(100% - 60px);
+  }
+
+  .rooms-button.is-outline {
+    margin-left: 56px;
+  }
+
+  .rooms-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+    padding-inline: 14px;
+  }
+}
