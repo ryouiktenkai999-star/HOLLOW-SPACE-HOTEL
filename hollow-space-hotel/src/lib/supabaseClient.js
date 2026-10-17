@@ -1,27 +1,83 @@
 import { createClient } from "@supabase/supabase-js";
 
-function getCleanHttpUrl(raw) {
-  if (!raw || typeof raw !== "string") return "";
-  const trimmed = raw.trim();
+const DEFAULT_SUPABASE_URL = "https://izbruprsersqpeoaomez.supabase.co";
+
+function isValidHttpUrl(str) {
+  if (!str || typeof str !== "string") return false;
   try {
-    const parsed = new URL(trimmed);
-    if (parsed.protocol === "http:" || parsed.protocol === "https:") {
-      return trimmed.replace(/\/+$/, "");
+    const url = new URL(str.trim());
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function cleanUrl(str) {
+  return str.trim().replace(/\/+$/, "");
+}
+
+function extractRefFromJwt(token) {
+  if (!token || typeof token !== "string") return "";
+  try {
+    const parts = token.split(".");
+    if (parts.length === 3) {
+      const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+      const jsonStr =
+        typeof atob === "function"
+          ? atob(base64)
+          : Buffer.from(base64, "base64").toString("utf-8");
+      const payload = JSON.parse(jsonStr);
+      if (payload && payload.ref) {
+        return payload.ref;
+      }
     }
   } catch {
-    return "";
+    // Ignore decode errors
   }
   return "";
 }
 
-const rawUrl = import.meta.env.VITE_SUPABASE_URL || "";
-const rawKey =
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-  import.meta.env.VITE_SUPABASE_ANON_KEY ||
-  "";
+function resolveSupabaseConfig() {
+  let rawUrl = (import.meta.env.VITE_SUPABASE_URL || "").trim();
+  let rawKey = (
+    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+    import.meta.env.VITE_SUPABASE_ANON_KEY ||
+    ""
+  ).trim();
 
-export const supabaseUrl = getCleanHttpUrl(rawUrl);
-export const supabasePublicKey = typeof rawKey === "string" ? rawKey.trim() : "";
+  // If user accidentally swapped URL and Key:
+  if (!isValidHttpUrl(rawUrl) && isValidHttpUrl(rawKey)) {
+    const temp = rawUrl;
+    rawUrl = rawKey;
+    rawKey = temp;
+  }
+
+  // If rawUrl is still not a valid HTTP URL, try to extract project ref from JWT or fallback
+  let finalUrl = "";
+  if (isValidHttpUrl(rawUrl)) {
+    finalUrl = cleanUrl(rawUrl);
+  } else {
+    const ref = extractRefFromJwt(rawKey) || extractRefFromJwt(rawUrl);
+    if (ref) {
+      finalUrl = `https://${ref}.supabase.co`;
+    } else if (rawKey || rawUrl) {
+      finalUrl = DEFAULT_SUPABASE_URL;
+    }
+  }
+
+  // Ensure key is an actual key (if rawUrl was an API key, use it if rawKey is empty)
+  let finalKey = rawKey;
+  if (!finalKey && rawUrl && !isValidHttpUrl(rawUrl)) {
+    finalKey = rawUrl;
+  }
+
+  return { url: finalUrl, key: finalKey };
+}
+
+const { url: resolvedUrl, key: resolvedKey } = resolveSupabaseConfig();
+
+export const supabaseUrl = resolvedUrl;
+export const supabasePublicKey = resolvedKey;
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabasePublicKey);
 
@@ -33,9 +89,9 @@ if (isSupabaseConfigured) {
     console.error("Failed to initialize Supabase client:", error);
     client = null;
   }
-} else if (rawUrl || rawKey) {
+} else {
   console.warn(
-    "Supabase configuration is incomplete or invalid. Ensure VITE_SUPABASE_URL is a valid HTTP/HTTPS URL and VITE_SUPABASE_ANON_KEY is provided."
+    "Supabase configuration is incomplete. Provide VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Vercel settings or .env."
   );
 }
 
