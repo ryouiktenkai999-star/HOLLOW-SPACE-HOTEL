@@ -1,9 +1,12 @@
 {
-  "dependencies": {
-    "@supabase/ssr": "^0.12.7",
-    "@supabase/supabase-js": "^2.117.2",
-    "ionicons": "^8.1.0",
-    "react-icons": "^5.7.0",
-    "react-router-dom": "^7.18.4"
+  "name": "hollow-space-hotel-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix hollow-space-hotel run dev",
+    "build": "npm --prefix hollow-space-hotel run build",
+    "preview": "npm --prefix hollow-space-hotel run preview",
+    "lint": "npm --prefix hollow-space-hotel run lint"
   }
 }
