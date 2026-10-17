@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HOLLOW-SPACE-HOTEL
 
 Hollow Space Hotel web application built with React, Vite, React Router, and Supabase.
@@ -25,3 +26,6 @@ This repository is pre-configured to deploy seamlessly to [Vercel](https://verce
 - **SPA Client Routing**: `vercel.json` rewrites all route requests (`/client-login`, `/rooms`, `/booking`, `/admin`, `/register`) to `/index.html` to eliminate 404 errors on page reload.
 - **Fail-safe Supabase Client**: Guards against invalid or unconfigured URLs during deployment so the app loads smoothly.
 - **Root Delegation**: Root `package.json` and root `vercel.json` forward build commands to the Vite application.
+=======
+# HOLLOW-SPACE-HOTEL
+>>>>>>> 0bc446d84bf822318e1d7b8994a31ae4ac4b28fe
