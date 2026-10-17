@@ -18,7 +18,7 @@ This repository is pre-configured to deploy seamlessly to [Vercel](https://verce
 4. **Environment Variables**:
    In your Vercel Project Settings under **Environment Variables**, add:
    - `VITE_SUPABASE_URL`: `https://izbruprsersqpeoaomez.supabase.co`
-   - `VITE_SUPABASE_ANON_KEY`: `your_supabase_anon_key` (found in Supabase Dashboard -> Project Settings -> API)
+   - `VITE_SUPABASE_ANON_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6YnJ1cHJzZXJzcXBlb2FvbWV6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0MTEwMzQsImV4cCI6MjEwNTk4NzAzNH0.p-KdCMorhd0EnyG3MYYQvGGfl6kv_2cY51FG7VFRnP4`
 5. Click **Deploy**.
 
 ### Included Vercel Configurations:
